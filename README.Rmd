@@ -1,3 +1,17 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
 
 # DFOsamplestats
 
@@ -10,6 +24,14 @@ The goal of DFOsamplestats is to ...
 
 ## Installation
 
+DFOsamplestats can be installed from GitHub using the remotes package:
+``` r
+remotes::install_github("poissonconsulting/DFOsamplestats")
+```
+or alternatively using the pak package:
+``` r
+pak::pak("poissonconsulting/DFOsamplestats")
+```
 
 ## Example
 
@@ -19,3 +41,9 @@ This is a basic example which shows you how to solve a common problem:
 library(DFOsamplestats)
 ## basic example code
 ```
+
+## Contribution
+
+Please report any [issues](https://github.com/poissonconsulting/DFOsamplestats/issues).
+
+[Pull requests](https://github.com/poissonconsulting/DFOsamplestats/pulls) are always welcome.
