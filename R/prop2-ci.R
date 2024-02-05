@@ -1,4 +1,6 @@
-#' Estimate and Confidence Limits for Exact Two Sample Test Proportions
+#' Calculate Estimate and Confidence Limits for Two Sample Test Proportion
+#' 
+#' Uses [`stats::binom.test`] to calculate the confidence intervals.
 #' 
 #' @inheritParams params
 #' @return A data frame of the estimated proportion in the first group with lower and upper 95% confidence limits.

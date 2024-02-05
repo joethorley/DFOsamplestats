@@ -2,7 +2,7 @@
 % Please edit documentation in R/prop2-ci.R
 \name{prop2_ci}
 \alias{prop2_ci}
-\title{Estimate and Confidence Limits for Exact Two Sample Test Proportions}
+\title{Calculate Estimate and Confidence Limits for Two Sample Test Proportion}
 \usage{
 prop2_ci(n1, n2)
 }
@@ -15,7 +15,7 @@ prop2_ci(n1, n2)
 A data frame of the estimated proportion in the first group with lower and upper 95\% confidence limits.
 }
 \description{
-Estimate and Confidence Limits for Exact Two Sample Test Proportions
+Uses \code{\link[stats:binom.test]{stats::binom.test}} to calculate the confidence intervals.
 }
 \examples{
 prop2_ci(6, 0)

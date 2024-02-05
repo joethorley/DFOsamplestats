@@ -2,7 +2,7 @@
 % Please edit documentation in R/prop2-power.R
 \name{prop2_power}
 \alias{prop2_power}
-\title{Power for Two Sample Test Proportion}
+\title{Calculate Power for Two Sample Test Proportion}
 \usage{
 prop2_power(p1, n, p2 = 1 - p1, alternative = "two.sided")
 }
@@ -21,16 +21,25 @@ or "less" or "greater" one-sided test.}
 A real scalar of the power.
 }
 \description{
-Uses \code{stats::power.prop.test()} to calculate the statistical
+Uses \code{\link[stats:power.prop.test]{stats::power.prop.test()}} to calculate the statistical
 power (probability of a p-value < 0.05)
 for a test of a difference in the proportion of samples
 appearing in two groups.
+}
+\details{
+It is worth noting that \code{n} is the total number of samples in the study,
+unlike with \code{\link[stats:power.prop.test]{stats::power.prop.test()}} where it is the total number of
+samples in each group.
 }
 \examples{
 prop2_power(0.9, n = 10)
 prop2_power(0.1, n = 10)
 prop2_power(0.01, 0.09, n = 10)
+prop2_power(0.01, 0.09, n = 100)
 prop2_power(0.45, 10)
 prop2_power(0.005, p2 = 0.0075, 1000)
 prop2_power(0.005, p2 = 0.0075, 1000, alternative = "greater")
+}
+\seealso{
+\code{\link[=prop2_samplesize]{prop2_samplesize()}}
 }

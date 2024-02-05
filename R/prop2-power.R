@@ -1,19 +1,24 @@
-#' Power for Two Sample Test Proportion
+#' Calculate Power for Two Sample Test Proportion
 #' 
-#' Uses `stats::power.prop.test()` to calculate the statistical 
+#' Uses [`stats::power.prop.test()`] to calculate the statistical 
 #' power (probability of a p-value < 0.05)
 #' for a test of a difference in the proportion of samples
 #' appearing in two groups.
+#' 
+#' It is worth noting that `n` is the total number of samples in the study,
+#' unlike with [`stats::power.prop.test()`] where it is the total number of 
+#' samples in each group.
 #'
 #' @inheritParams params
-#'
 #' @return A real scalar of the power.
+#' @seealso [`prop2_samplesize()`]
 #' @export
 #'
 #' @examples
 #' prop2_power(0.9, n = 10)
 #' prop2_power(0.1, n = 10)
 #' prop2_power(0.01, 0.09, n = 10)
+#' prop2_power(0.01, 0.09, n = 100)
 #' prop2_power(0.45, 10)
 #' prop2_power(0.005, p2 = 0.0075, 1000)
 #' prop2_power(0.005, p2 = 0.0075, 1000, alternative = "greater")

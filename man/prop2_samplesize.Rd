@@ -2,7 +2,7 @@
 % Please edit documentation in R/prop2-samplesize.R
 \name{prop2_samplesize}
 \alias{prop2_samplesize}
-\title{Sample Size for Two Sample Test Proportion}
+\title{Calculate Sample Size for Two Sample Test Proportion}
 \usage{
 prop2_samplesize(p1, p2 = 1 - p1, alternative = "two.sided")
 }
@@ -15,14 +15,19 @@ prop2_samplesize(p1, p2 = 1 - p1, alternative = "two.sided")
 or "less" or "greater" one-sided test.}
 }
 \value{
-A integer of the required number of individuals.
+A integer of the required total sample size.
 }
 \description{
-Uses \code{stats::power.prop.test()} to calculate the number of samples that
+Uses \code{\link[stats:power.prop.test]{stats::power.prop.test()}} to calculate the total number of samples that
 must be included in a study
 to achieve a statistical power of 0.8 at a significance level of 0.05
 for a test of a difference in the proportion of samples
-appearing in one of two groups.
+appearing in two groups.
+}
+\details{
+It is worth noting that \code{n} is the total number of samples required in the study,
+unlike with \code{\link[stats:power.prop.test]{stats::power.prop.test()}} where it is the total number of
+samples in each group.
 }
 \examples{
 prop2_samplesize(0.9)

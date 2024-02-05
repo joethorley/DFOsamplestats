@@ -1,14 +1,18 @@
-#' Sample Size for Two Sample Test Proportion
+#' Calculate Sample Size for Two Sample Test Proportion
 #' 
-#' Uses `stats::power.prop.test()` to calculate the number of samples that
+#' Uses [`stats::power.prop.test()`] to calculate the total number of samples that
 #' must be included in a study 
 #' to achieve a statistical power of 0.8 at a significance level of 0.05 
 #' for a test of a difference in the proportion of samples
-#' appearing in one of two groups.
+#' appearing in two groups.
+#' 
+#' It is worth noting that `n` is the total number of samples required in the study,
+#' unlike with [`stats::power.prop.test()`] where it is the total number of 
+#' samples in each group.
 #'
 #' @inheritParams params
 #'
-#' @return A integer of the required number of individuals. 
+#' @return A integer of the required total sample size. 
 #' @export
 #'
 #' @examples
