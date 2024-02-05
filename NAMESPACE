@@ -2,4 +2,5 @@
 
 export(n_prop2_test)
 export(p_prop2_test)
+export(p_props_test)
 import(chk)
