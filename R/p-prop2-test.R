@@ -11,13 +11,13 @@
 #' @export
 #'
 #' @examples
-#' p_prop2_test(6, 0)
-#' p_prop2_test(3, 3)
-#' p_prop2_test(0, 6)
-#' p_prop2_test(106, 100)
-#' p_prop2_test(106, 100, one_sided = TRUE)
-#' p_prop2_test(100, 106, one_sided = TRUE)
-p_prop2_test <- function(n1, n2, one_sided = FALSE) {
+#' prop2_power(6, 0)
+#' prop2_power(3, 3)
+#' prop2_power(0, 6)
+#' prop2_power(106, 100)
+#' prop2_power(106, 100, one_sided = TRUE)
+#' prop2_power(100, 106, one_sided = TRUE)
+prop2_power <- function(n1, n2, one_sided = FALSE) {
   chk_whole_number(n1)
   chk_whole_number(n2)
   chk_scalar(n1)
