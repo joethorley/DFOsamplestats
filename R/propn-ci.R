@@ -6,11 +6,11 @@
 #' @export
 #'
 #' @examples
-#' propn_estimate(c(106, 100))
-#' propn_estimate(c(106, 100, 90))
-#' propn_estimate(c(106, 80))
-#' propn_estimate(c(106, 80, 106))
-propn_estimate <- function(ns) {
+#' propn_ci(c(106, 100))
+#' propn_ci(c(106, 100, 90))
+#' propn_ci(c(106, 80))
+#' propn_ci(c(106, 80, 106))
+propn_ci <- function(ns) {
   chk_whole_numeric(ns)
   chk_vector(ns)
   chk_length(ns, 2L, 10L)
@@ -24,6 +24,8 @@ propn_estimate <- function(ns) {
   t <- stats::prop.test(x, n)
   estimate <- unname(t$estimate)
   ci <- t$conf.int
+  print(ci)
+  print(t$estimate)
   if(is.null(ci)) {
     ci <- rep(NA_real_, 2)
   }
