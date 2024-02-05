@@ -9,11 +9,11 @@
 #' @export
 #'
 #' @examples
-#' p_props_test(c(106, 100))
-#' p_props_test(c(106, 100, 106))
-#' p_props_test(c(106, 80))
-#' p_props_test(c(106, 80, 106))
-p_props_test <- function(ns) {
+#' propn_test(c(106, 100))
+#' propn_test(c(106, 100, 90))
+#' propn_test(c(106, 80))
+#' propn_test(c(106, 80, 106))
+propn_test <- function(ns) {
   chk_whole_numeric(ns)
   chk_vector(ns)
   chk_length(ns, 2L, 10L)
@@ -23,5 +23,13 @@ p_props_test <- function(ns) {
 
   x <- ns
   n <- rep(sum(ns), length(x))
-  stats::prop.test(x, n)$p.value
+  
+  t <- stats::prop.test(x, n)
+  return(t)
+  estimate <- unname(t$estimate)
+  ci <- t$conf.int
+  pvalue <- t$p.value
+  
+  tibble::tibble(estimate = estimate, lower = ci[1], upper = ci[2], 
+                 pvalue = pvalue, svalue = svalue)
 }
