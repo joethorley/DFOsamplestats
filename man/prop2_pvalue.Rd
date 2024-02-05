@@ -4,14 +4,15 @@
 \alias{prop2_pvalue}
 \title{P-Value for Exact Two Sample Test Proportions}
 \usage{
-prop2_pvalue(n1, n2, one_sided = FALSE)
+prop2_pvalue(n1, n2, alternative = "two.sided")
 }
 \arguments{
 \item{n1}{Number of samples in first group.}
 
 \item{n2}{Number of samples in second group.}
 
-\item{one_sided}{A flag specifying whether to perform a one sided test.}
+\item{alternative}{A string specifying whether to perform a "two.sided",
+or "less" or "greater" one-sided test.}
 }
 \value{
 A real scalar of the p-value.
@@ -24,6 +25,7 @@ prop2_pvalue(6, 0)
 prop2_pvalue(3, 3)
 prop2_pvalue(0, 6)
 prop2_pvalue(106, 100)
-prop2_pvalue(106, 100, one_sided = TRUE)
-prop2_pvalue(100, 106, one_sided = TRUE)
+prop2_pvalue(106, 100, alternative = "greater")
+prop2_pvalue(106, 100, alternative = "less")
+prop2_pvalue(100, 106, alternative = "less")
 }

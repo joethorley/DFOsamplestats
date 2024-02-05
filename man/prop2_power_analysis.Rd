@@ -2,16 +2,17 @@
 % Please edit documentation in R/prop2-power-analysis.R
 \name{prop2_power_analysis}
 \alias{prop2_power_analysis}
-\title{Power for Two Sample Test Proportion}
+\title{Power Analysis for Two Sample Test Proportion}
 \usage{
-prop2_power_analysis(p1, n, one_sided = FALSE, nsims = 1000)
+prop2_power_analysis(p1, n, alternative = "two.sided", nsims = 1000)
 }
 \arguments{
-\item{p1}{Proportion appearing in first group.}
+\item{p1}{Probability appearing in first vs second group.}
 
 \item{n}{Total number of samples.}
 
-\item{one_sided}{A flag specifying whether to perform a one sided test.}
+\item{alternative}{A string specifying whether to perform a "two.sided",
+or "less" or "greater" one-sided test.}
 
 \item{nsims}{A whole number of the number of simulations to perform.}
 }
@@ -19,7 +20,7 @@ prop2_power_analysis(p1, n, one_sided = FALSE, nsims = 1000)
 A real scalar of the power.
 }
 \description{
-Power for Two Sample Test Proportion
+Power Analysis for Two Sample Test Proportion
 }
 \examples{
 set.seed(99)

@@ -1,5 +1,5 @@
 #' Estimate and Confidence Limits for Exact Two Sample Test Proportions
-
+#' 
 #' @param n1 Number of samples in first group.
 #' @param n2 Number of samples in second group.
 #'
