@@ -14,12 +14,12 @@
 #' @export
 #'
 #' @examples
-#' n_prop2_test(0.9, 0.1)
-#' n_prop2_test(0.1, 0.9)
-#' n_prop2_test(0.01, 0.09)
-#' n_prop2_test(0.45, 0.55)
-#' n_prop2_test(0.005, 0.0075)
-n_prop2_test <- function(p1, p2, one_sided = FALSE) {
+#' prop2_power(0.9, 0.1)
+#' prop2_power(0.1, 0.9)
+#' prop2_power(0.01, 0.09)
+#' prop2_power(0.45, 0.55)
+#' prop2_power(0.005, 0.0075)
+prop2_power <- function(p1, p2, one_sided = FALSE) {
   chk_numeric(p1)
   chk_numeric(p2)
   chk_scalar(p1)
