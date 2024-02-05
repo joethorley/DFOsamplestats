@@ -6,9 +6,8 @@ prop2_pvalue_fun <- function(x, alternative) {
 #'
 #' @param p1 Probability appearing in first vs second group.
 #' @param n Total number of samples.
-#' @param alternative A string specifying whether to perform a "two.sided",
-#' or "less" or "greater" one-sided test.
 #' @param nsims A whole number of the number of simulations to perform.
+#' @inheritParams params
 #'
 #' @return A real scalar of the power.
 #' @export

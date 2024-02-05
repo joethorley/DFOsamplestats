@@ -2,8 +2,7 @@
 #'
 #' @param n1 Number of samples in first group.
 #' @param n2 Number of samples in second group.
-#' @param alternative A string specifying whether to perform a "two.sided",
-#' or "less" or "greater" one-sided test.
+#' @inheritParams params
 #'
 #' @return A real scalar of the p-value.
 #' @export

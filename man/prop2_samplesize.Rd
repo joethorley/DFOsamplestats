@@ -4,7 +4,7 @@
 \alias{prop2_samplesize}
 \title{Sample Size for Two Sample Test Proportion}
 \usage{
-prop2_samplesize(p1, p2, one_sided = FALSE)
+prop2_samplesize(p1, p2 = 1 - p1, one_sided = FALSE)
 }
 \arguments{
 \item{p1}{Proportion appearing in one group.}
@@ -24,10 +24,10 @@ for a test of a difference in the proportion of samples
 appearing in one of two groups.
 }
 \examples{
-prop2_samplesize(0.9, 0.1)
-prop2_samplesize(0.1, 0.9)
+prop2_samplesize(0.9)
+prop2_samplesize(0.1)
 prop2_samplesize(0.01, 0.09)
-prop2_samplesize(0.45, 0.55)
+prop2_samplesize(0.45)
 prop2_samplesize(0.005, 0.0075)
 prop2_samplesize(0.005, 0.0075, one_sided = TRUE)
 }

@@ -4,16 +4,17 @@
 \alias{prop2_power}
 \title{Power for Two Sample Test Proportion}
 \usage{
-prop2_power(p1, p2, n, one_sided = FALSE)
+prop2_power(p1, n, p2 = 1 - p1, alternative = "two.sided")
 }
 \arguments{
 \item{p1}{Proportion appearing in first group.}
 
+\item{n}{Total number of samples in study. This is different to
+\code{stats::power.prop.test()} where \code{n} is the number of samples in each group.}
+
 \item{p2}{Proportion appearing in second group.}
 
-\item{n}{Total number of samples.}
-
-\item{one_sided}{A flag specifying whether to perform a one sided test.}
+\item{alternative}{A flag specifying whether to perform a one sided test.}
 }
 \value{
 A real scalar of the power.
@@ -25,10 +26,10 @@ for a test of a difference in the proportion of samples
 appearing in two groups.
 }
 \examples{
-prop2_power(0.9, 0.1, 10)
-prop2_power(0.1, 0.9, 10)
-prop2_power(0.01, 0.09, 10)
-prop2_power(0.45, 0.55, 10)
-prop2_power(0.005, 0.0075, 1000)
-prop2_power(0.005, 0.0075, 1000, one_sided = TRUE)
+prop2_power(0.9, n = 10)
+prop2_power(0.1, n = 10)
+prop2_power(0.01, 0.09, n = 10)
+prop2_power(0.45, 10)
+prop2_power(0.005, p2 = 0.0075, 1000)
+prop2_power(0.005, p2 = 0.0075, 1000, alternative = "greater")
 }

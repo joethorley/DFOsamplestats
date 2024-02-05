@@ -3,6 +3,10 @@
 \name{params}
 \alias{params}
 \title{Parameters for functions}
+\arguments{
+\item{alternative}{A string specifying whether to perform a "two.sided",
+or "less" or "greater" one-sided test.}
+}
 \description{
 Descriptions of the parameters for functions
 }
