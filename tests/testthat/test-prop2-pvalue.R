@@ -1,0 +1,13 @@
+test_that("multiplication works", {
+  expect_equal(prop2_pvalue(6, 0), 0.03125)
+  expect_equal(prop2_pvalue(6, 0, one_sided = TRUE), 0.015625)
+  expect_equal(prop2_pvalue(3, 3), 1)
+  expect_equal(prop2_pvalue(3, 3, one_sided = TRUE), 0.65625)
+  expect_equal(prop2_pvalue(4, 3), 1)
+  expect_equal(prop2_pvalue(4, 3, one_sided = TRUE), 0.5)
+  expect_equal(prop2_pvalue(0, 6), 0.03125)
+  expect_equal(prop2_pvalue(0, 6, one_sided = TRUE), 0.015625)
+  expect_equal(prop2_pvalue(106, 100), 0.727658676454905)
+  expect_equal(prop2_pvalue(106, 100, one_sided = TRUE), 0.363829338227453)
+  expect_equal(prop2_pvalue(100, 106, one_sided = TRUE), 0.363829338227453)
+})
