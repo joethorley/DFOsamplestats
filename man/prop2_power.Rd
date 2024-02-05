@@ -2,31 +2,33 @@
 % Please edit documentation in R/prop2-power.R
 \name{prop2_power}
 \alias{prop2_power}
-\title{Sample Size for Two Sample Test Proportion}
+\title{Power for Two Sample Test Proportion}
 \usage{
-prop2_power(p1, p2, one_sided = FALSE)
+prop2_power(p1, p2, n, one_sided = FALSE)
 }
 \arguments{
-\item{p1}{Proportion appearing in one group.}
+\item{p1}{Proportion appearing in first group.}
 
-\item{p2}{Proportion appearing in other group.}
+\item{p2}{Proportion appearing in second group.}
+
+\item{n}{Total number of samples.}
 
 \item{one_sided}{A flag specifying whether to perform a one sided test.}
 }
 \value{
-A integer of the required number of individuals.
+A real scalar of the power.
 }
 \description{
-Uses \code{stats::power.prop.test()} to calculate the number of samples that
-must be included in a study
-to achieve a statistical power of 0.8 at a significance level of 0.05
+Uses \code{stats::power.prop.test()} to calculate the statistical
+power (probability of a p-value < 0.05)
 for a test of a difference in the proportion of samples
-appearing in one of two groups.
+appearing in two groups.
 }
 \examples{
-prop2_power(0.9, 0.1)
-prop2_power(0.1, 0.9)
-prop2_power(0.01, 0.09)
-prop2_power(0.45, 0.55)
-prop2_power(0.005, 0.0075)
+prop2_power(0.9, 0.1, 10)
+prop2_power(0.1, 0.9, 10)
+prop2_power(0.01, 0.09, 10)
+prop2_power(0.45, 0.55, 10)
+prop2_power(0.005, 0.0075, 1000)
+prop2_power(0.005, 0.0075, 1000, one_sided = TRUE)
 }

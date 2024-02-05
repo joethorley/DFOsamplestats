@@ -1,41 +1,36 @@
-#' Sample Size for Two Sample Test Proportion
+#' Power for Two Sample Test Proportion
 #' 
-#' Uses `stats::power.prop.test()` to calculate the number of samples that
-#' must be included in a study 
-#' to achieve a statistical power of 0.8 at a significance level of 0.05 
+#' Uses `stats::power.prop.test()` to calculate the statistical 
+#' power (probability of a p-value < 0.05)
 #' for a test of a difference in the proportion of samples
-#' appearing in one of two groups.
+#' appearing in two groups.
 #'
-#' @param p1 Proportion appearing in one group.
-#' @param p2 Proportion appearing in other group.
+#' @param p1 Proportion appearing in first group.
+#' @param p2 Proportion appearing in second group.
+#' @param n Total number of samples.
 #' @param one_sided A flag specifying whether to perform a one sided test.
 #'
-#' @return A integer of the required number of individuals. 
+#' @return A real scalar of the power.
 #' @export
 #'
 #' @examples
-#' prop2_power(0.9, 0.1)
-#' prop2_power(0.1, 0.9)
-#' prop2_power(0.01, 0.09)
-#' prop2_power(0.45, 0.55)
-#' prop2_power(0.005, 0.0075)
-prop2_power <- function(p1, p2, one_sided = FALSE) {
-  chk_numeric(p1)
-  chk_numeric(p2)
-  chk_scalar(p1)
-  chk_scalar(p2)
+#' prop2_power(0.9, 0.1, 10)
+#' prop2_power(0.1, 0.9, 10)
+#' prop2_power(0.01, 0.09, 10)
+#' prop2_power(0.45, 0.55, 10)
+#' prop2_power(0.005, 0.0075, 1000)
+#' prop2_power(0.005, 0.0075, 1000, one_sided = TRUE)
+prop2_power <- function(p1, p2, n, one_sided = FALSE) {
+  chk_number(p1)
+  chk_number(p2)
   chk_range(p1)
   chk_range(p2)
   chk_lte(sum(c(p1, p2)), value = 1, x_name = "The sum of `p1` and `p2`")
+  chk_whole_number(n)
+  chk_gt(n)
   chk_flag(one_sided)
-  
-  if(is.na(p1) | is.na(p2)) {
-    return(NA_integer_)
-  }
-  
+
   alternative <- if(one_sided) "one.sided" else "two.sided"
   
-  stats::power.prop.test(p1 = p1, p2 = p2, power = 0.8, alternative = alternative)$n |>
-    ceiling() |>
-    as.integer()
+  stats::power.prop.test(n = n, p1 = p1, p2 = p2, power = NULL, alternative = alternative)$power
 }

@@ -3,6 +3,7 @@
 export(prop2_estimate)
 export(prop2_power)
 export(prop2_pvalue)
+export(prop2_samplesize)
 export(propn_estimate)
 export(propn_pvalue)
 import(chk)
