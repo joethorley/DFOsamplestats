@@ -1,23 +1,21 @@
 Package: DFOsamplestats
 Title: a package for sample statistics and testing data relationships
 Version: 0.0.0.9000
-Authors@R: 
-    person(given = "Colton",
-      family = "Stephens",
-      email = "coltonstephens@poissonconsulting.ca",
-      role = c("aut", "cre"),
-      comment = c(ORCID = "0000-0002-8744-6405")
-    )
+Authors@R: c(
+    person("Joe", "Thorley", , "joe@poissonconsulting.ca", role =  c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-7683-4592")),
+    person("Colton", "Stephens", , "coltonstephens@poissonconsulting.ca", role = "ctb",
+           comment = c(ORCID = "0000-0002-8744-6405"))
+  )
 Description: What the package does (one paragraph).
 License: GPL (>= 3)
 URL: https://github.com/poissonconsulting/DFOsamplestats
 Depends:
     R (>= 4.1)
-Import:
-   DFOsalmonids,
+Imports:
+   chk,
    stats
 Suggests:
-    chk,
     covr,
     testthat (>= 3.0.0)
 Remotes:

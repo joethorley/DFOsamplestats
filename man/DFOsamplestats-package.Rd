@@ -16,7 +16,12 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Colton Stephens \email{coltonstephens@poissonconsulting.ca} (\href{https://orcid.org/0000-0002-8744-6405}{ORCID})
+\strong{Maintainer}: Joe Thorley \email{joe@poissonconsulting.ca} (\href{https://orcid.org/0000-0002-7683-4592}{ORCID})
+
+Other contributors:
+\itemize{
+  \item Colton Stephens \email{coltonstephens@poissonconsulting.ca} (\href{https://orcid.org/0000-0002-8744-6405}{ORCID}) [contributor]
+}
 
 }
 \keyword{internal}

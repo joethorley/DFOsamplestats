@@ -26,21 +26,10 @@ The goal of DFOsamplestats is to ...
 
 DFOsamplestats can be installed from GitHub using the remotes package:
 ``` r
+install.packages("remotes")
 remotes::install_github("poissonconsulting/DFOsamplestats")
 ```
-or alternatively using the pak package:
-``` r
-pak::pak("poissonconsulting/DFOsamplestats")
-```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-library(DFOsamplestats)
-## basic example code
-```
 
 ## Contribution
 
