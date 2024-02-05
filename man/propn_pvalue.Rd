@@ -4,10 +4,13 @@
 \alias{propn_pvalue}
 \title{P-value for Multiple Sample Test Proportions}
 \usage{
-propn_pvalue(ns)
+propn_pvalue(ns, p = NULL)
 }
 \arguments{
 \item{ns}{A vector of the number of samples in each group.}
+
+\item{p}{A vector of the null probabilities of succes If NULL the
+probabilities are assumed to be equal.}
 }
 \value{
 A numeric scalar of the p-value.
@@ -20,4 +23,7 @@ propn_pvalue(c(106, 100))
 propn_pvalue(c(106, 100, 90))
 propn_pvalue(c(106, 80))
 propn_pvalue(c(106, 80, 106))
+propn_pvalue(c(60, 40))
+propn_pvalue(c(60, 40), p = c(0.6, 0.4))
+propn_pvalue(c(60, 40), p = c(0.4, 0.6))
 }
