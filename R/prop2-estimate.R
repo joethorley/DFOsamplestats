@@ -11,13 +11,13 @@
 #' @export
 #'
 #' @examples
-#' prop2_test(6, 0)
-#' prop2_test(3, 3)
-#' prop2_test(0, 6)
-#' prop2_test(106, 100)
-#' prop2_test(106, 100, one_sided = TRUE)
-#' prop2_test(100, 106, one_sided = TRUE)
-prop2_test <- function(n1, n2, one_sided = FALSE) {
+#' prop2_estimate(6, 0)
+#' prop2_estimate(3, 3)
+#' prop2_estimate(0, 6)
+#' prop2_estimate(106, 100)
+#' prop2_estimate(106, 100, one_sided = TRUE)
+#' prop2_estimate(100, 106, one_sided = TRUE)
+prop2_estimate <- function(n1, n2, one_sided = FALSE) {
   chk_whole_number(n1)
   chk_whole_number(n2)
   chk_scalar(n1)
@@ -39,9 +39,6 @@ prop2_test <- function(n1, n2, one_sided = FALSE) {
   t <- stats::binom.test(x, n, alternative = alternative)
   estimate <- unname(t$estimate)
   ci <- t$conf.int
-  pvalue <- t$p.value
-  svalue <- -log(pvalue, base = 2)
-  tibble::tibble(term = term::as_term("p1"), 
-                 estimate = estimate, lower = ci[1], upper = ci[2], 
-                 pvalue = pvalue, svalue = svalue)
+  tibble::tibble(term = term::as_term("p[1]"), 
+                 estimate = estimate, lower = ci[1], upper = ci[2])
 }
