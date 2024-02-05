@@ -2,6 +2,7 @@
 
 export(prop2_ci)
 export(prop2_power)
+export(prop2_power_analysis)
 export(prop2_pvalue)
 export(prop2_samplesize)
 export(prop2_sim)

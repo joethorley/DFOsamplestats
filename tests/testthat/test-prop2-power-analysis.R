@@ -1,0 +1,11 @@
+test_that("multiplication works", {
+  set.seed(99)
+  expect_equal(prop2_power_analysis(0.9, 10), 0.729)
+  set.seed(99)
+  expect_equal(prop2_power_analysis(0.9, 10), 0.729)
+  expect_equal(prop2_power_analysis(0.9, 10), 0.735)
+  set.seed(99)
+  expect_equal(prop2_power_analysis(0.1, 10), 0.729)
+  set.seed(99)
+  expect_equal(prop2_power_analysis(0.45, 500), 0.58)
+})

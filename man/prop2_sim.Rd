@@ -4,12 +4,10 @@
 \alias{prop2_sim}
 \title{Simulate Data for Two Sample Test Proportion}
 \usage{
-prop2_sim(p1, p2, n)
+prop2_sim(p1, n)
 }
 \arguments{
-\item{p1}{Proportion appearing in first group.}
-
-\item{p2}{Proportion appearing in second group.}
+\item{p1}{Probability of appearing in first group.}
 
 \item{n}{Total number of samples.}
 }
@@ -20,10 +18,13 @@ A real vector of the number in the first and second group.
 Simulate Data for Two Sample Test Proportion
 }
 \examples{
-prop2_sim(0.9, 0.1, 10)
-prop2_sim(0.9, 0.1, 10)
-prop2_sim(0.1, 0.9, 10)
-prop2_sim(0.01, 0.09, 10)
-prop2_sim(0.45, 0.55, 10)
-prop2_sim(0.005, 0.0075, 1000)
+set.seed(99)
+prop2_sim(0.9, 10)
+set.seed(99)
+prop2_sim(0.9, 10)
+prop2_sim(0.9, 10)
+set.seed(99)
+prop2_sim(0.1, 10)
+set.seed(99)
+prop2_sim(0.45, 10)
 }
