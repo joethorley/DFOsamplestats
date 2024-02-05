@@ -14,7 +14,9 @@ Depends:
     R (>= 4.1)
 Imports:
    chk,
-   stats
+   stats,
+   term,
+   tibble
 Suggests:
     covr,
     testthat (>= 3.0.0)
