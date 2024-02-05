@@ -4,14 +4,15 @@
 \alias{prop2_samplesize}
 \title{Sample Size for Two Sample Test Proportion}
 \usage{
-prop2_samplesize(p1, p2 = 1 - p1, one_sided = FALSE)
+prop2_samplesize(p1, p2 = 1 - p1, alternative = "two.sided")
 }
 \arguments{
 \item{p1}{Proportion appearing in first group.}
 
 \item{p2}{Proportion appearing in second group.}
 
-\item{one_sided}{A flag specifying whether to perform a one sided test.}
+\item{alternative}{A string specifying whether to perform a "two.sided",
+or "less" or "greater" one-sided test.}
 }
 \value{
 A integer of the required number of individuals.
@@ -29,5 +30,6 @@ prop2_samplesize(0.1)
 prop2_samplesize(0.01, 0.09)
 prop2_samplesize(0.45)
 prop2_samplesize(0.005, 0.0075)
-prop2_samplesize(0.005, 0.0075, one_sided = TRUE)
+prop2_samplesize(0.005, 0.0075, alternative = "less")
+prop2_samplesize(0.005, 0.0075, alternative = "greater")
 }
