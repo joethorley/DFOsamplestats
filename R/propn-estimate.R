@@ -1,11 +1,8 @@
-#' P-value for Exact Multiple Sample Test Proportions
+#' P-value for Multiple Sample Test Proportions
 #' 
-#' Uses `stats::prop.test()` to calculate the exact p-value for a
-#' multiple sample test of a difference in the probability of being in the groups.
-#'
 #' @param ns A vector of the number of samples in each group.
 #'
-#' @return A numeric scalar of the p-value. 
+#' @return A data set of the estimate and lower and upper 95% confidence limits.
 #' @export
 #'
 #' @examples

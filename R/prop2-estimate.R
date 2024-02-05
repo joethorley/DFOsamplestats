@@ -1,13 +1,10 @@
-#' Estimate, Confidence Interval and P-Value for Exact Two Sample Test Proportions
-#' 
-#' Uses `stats::binom.test()` to calculate the estimate 95% Confidence Interval
-#' and P-value for the probability of being in n1 vs n2.
-#'
+#' Estimate and Confidence Limits for Exact Two Sample Test Proportions
+
 #' @param n1 Number of samples in first group.
 #' @param n2 Number of samples in second group.
 #' @param one_sided A flag specifying whether to perform a one sided test.
 #'
-#' @return A numeric vector of the estimate and lower and upper 95% confidence limits.
+#' @return A data set of the estimate and lower and upper 95% confidence limits.
 #' @export
 #'
 #' @examples

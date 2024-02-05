@@ -2,7 +2,7 @@
 % Please edit documentation in R/propn-estimate.R
 \name{propn_estimate}
 \alias{propn_estimate}
-\title{P-value for Exact Multiple Sample Test Proportions}
+\title{P-value for Multiple Sample Test Proportions}
 \usage{
 propn_estimate(ns)
 }
@@ -10,11 +10,10 @@ propn_estimate(ns)
 \item{ns}{A vector of the number of samples in each group.}
 }
 \value{
-A numeric scalar of the p-value.
+A data set of the estimate and lower and upper 95\% confidence limits.
 }
 \description{
-Uses \code{stats::prop.test()} to calculate the exact p-value for a
-multiple sample test of a difference in the probability of being in the groups.
+P-value for Multiple Sample Test Proportions
 }
 \examples{
 propn_estimate(c(106, 100))

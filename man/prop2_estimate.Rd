@@ -2,7 +2,7 @@
 % Please edit documentation in R/prop2-estimate.R
 \name{prop2_estimate}
 \alias{prop2_estimate}
-\title{Estimate, Confidence Interval and P-Value for Exact Two Sample Test Proportions}
+\title{Estimate and Confidence Limits for Exact Two Sample Test Proportions}
 \usage{
 prop2_estimate(n1, n2, one_sided = FALSE)
 }
@@ -14,11 +14,10 @@ prop2_estimate(n1, n2, one_sided = FALSE)
 \item{one_sided}{A flag specifying whether to perform a one sided test.}
 }
 \value{
-A numeric vector of the estimate and lower and upper 95\% confidence limits.
+A data set of the estimate and lower and upper 95\% confidence limits.
 }
 \description{
-Uses \code{stats::binom.test()} to calculate the estimate 95\% Confidence Interval
-and P-value for the probability of being in n1 vs n2.
+Estimate and Confidence Limits for Exact Two Sample Test Proportions
 }
 \examples{
 prop2_estimate(6, 0)
