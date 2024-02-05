@@ -7,9 +7,10 @@
 prop2_sim(p1, n)
 }
 \arguments{
-\item{p1}{Probability of appearing in first group.}
+\item{p1}{Proportion appearing in first group.}
 
-\item{n}{Total number of samples.}
+\item{n}{Total number of samples in study. This is different to
+\code{stats::power.prop.test()} where \code{n} is the number of samples in each group.}
 }
 \value{
 A real vector of the number in the first and second group.

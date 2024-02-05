@@ -6,6 +6,19 @@
 \arguments{
 \item{alternative}{A string specifying whether to perform a "two.sided",
 or "less" or "greater" one-sided test.}
+
+\item{n}{Total number of samples in study. This is different to
+\code{stats::power.prop.test()} where \code{n} is the number of samples in each group.}
+
+\item{n1}{Number of samples in first group.}
+
+\item{n2}{Number of samples in second group.}
+
+\item{nsims}{Number of simulations to perform.}
+
+\item{p1}{Proportion appearing in first group.}
+
+\item{p2}{Proportion appearing in second group.}
 }
 \description{
 Descriptions of the parameters for functions

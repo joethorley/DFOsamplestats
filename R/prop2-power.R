@@ -5,11 +5,7 @@
 #' for a test of a difference in the proportion of samples
 #' appearing in two groups.
 #'
-#' @param p1 Proportion appearing in first group.
-#' @param p2 Proportion appearing in second group.
-#' @param n Total number of samples in study. This is different to
-#'  `stats::power.prop.test()` where `n` is the number of samples in each group.
-#' @param alternative A flag specifying whether to perform a one sided test.
+#' @inheritParams params
 #'
 #' @return A real scalar of the power.
 #' @export

@@ -1,8 +1,6 @@
 #' Estimate and Confidence Limits for Exact Two Sample Test Proportions
 #' 
-#' @param n1 Number of samples in first group.
-#' @param n2 Number of samples in second group.
-#'
+#' @inheritParams params
 #' @return A data frame of the estimated proportion in the first group with lower and upper 95% confidence limits.
 #' @export
 #'

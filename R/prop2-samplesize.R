@@ -6,8 +6,7 @@
 #' for a test of a difference in the proportion of samples
 #' appearing in one of two groups.
 #'
-#' @param p1 Proportion appearing in one group.
-#' @param p2 Proportion appearing in other group.
+#' @inheritParams params
 #' @param one_sided A flag specifying whether to perform a one sided test.
 #'
 #' @return A integer of the required number of individuals. 

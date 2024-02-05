@@ -7,14 +7,15 @@
 prop2_power_analysis(p1, n, alternative = "two.sided", nsims = 1000)
 }
 \arguments{
-\item{p1}{Probability appearing in first vs second group.}
+\item{p1}{Proportion appearing in first group.}
 
-\item{n}{Total number of samples.}
+\item{n}{Total number of samples in study. This is different to
+\code{stats::power.prop.test()} where \code{n} is the number of samples in each group.}
 
 \item{alternative}{A string specifying whether to perform a "two.sided",
 or "less" or "greater" one-sided test.}
 
-\item{nsims}{A whole number of the number of simulations to perform.}
+\item{nsims}{Number of simulations to perform.}
 }
 \value{
 A real scalar of the power.

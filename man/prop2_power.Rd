@@ -14,7 +14,8 @@ prop2_power(p1, n, p2 = 1 - p1, alternative = "two.sided")
 
 \item{p2}{Proportion appearing in second group.}
 
-\item{alternative}{A flag specifying whether to perform a one sided test.}
+\item{alternative}{A string specifying whether to perform a "two.sided",
+or "less" or "greater" one-sided test.}
 }
 \value{
 A real scalar of the power.

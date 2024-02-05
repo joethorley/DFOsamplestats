@@ -4,11 +4,7 @@ prop2_pvalue_fun <- function(x, alternative) {
 
 #' Power Analysis for Two Sample Test Proportion
 #'
-#' @param p1 Probability appearing in first vs second group.
-#' @param n Total number of samples.
-#' @param nsims A whole number of the number of simulations to perform.
 #' @inheritParams params
-#'
 #' @return A real scalar of the power.
 #' @export
 #'

@@ -1,7 +1,6 @@
 #' Simulate Data for Two Sample Test Proportion
 #'
-#' @param p1 Probability of appearing in first group.
-#' @param n Total number of samples.
+#' @inheritParams params
 #'
 #' @return A real vector of the number in the first and second group.
 #' @export

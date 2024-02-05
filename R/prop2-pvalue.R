@@ -1,9 +1,6 @@
 #' P-Value for Exact Two Sample Test Proportions
 #'
-#' @param n1 Number of samples in first group.
-#' @param n2 Number of samples in second group.
 #' @inheritParams params
-#'
 #' @return A real scalar of the p-value.
 #' @export
 #'

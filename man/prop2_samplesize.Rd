@@ -7,9 +7,9 @@
 prop2_samplesize(p1, p2 = 1 - p1, one_sided = FALSE)
 }
 \arguments{
-\item{p1}{Proportion appearing in one group.}
+\item{p1}{Proportion appearing in first group.}
 
-\item{p2}{Proportion appearing in other group.}
+\item{p2}{Proportion appearing in second group.}
 
 \item{one_sided}{A flag specifying whether to perform a one sided test.}
 }
