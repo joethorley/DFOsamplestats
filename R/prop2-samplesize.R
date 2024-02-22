@@ -1,14 +1,10 @@
 #' Calculate Sample Size for Two Sample Test Proportion
 #' 
 #' Uses [`stats::power.prop.test()`] to calculate the total number of samples that
-#' must be included in a study 
+#' must be taken from each group 
 #' to achieve a statistical power of 0.8 at a significance level of 0.05 
 #' for a test of a difference in the proportion of samples
 #' appearing in two groups.
-#' 
-#' It is worth noting that `n` is the total number of samples required in the study,
-#' unlike with [`stats::power.prop.test()`] where it is the total number of 
-#' samples in each group.
 #'
 #' @inheritParams params
 #'
@@ -40,7 +36,6 @@ prop2_samplesize <- function(p1, p2 = 1 - p1, alternative = "two.sided") {
   }
   
   n <- stats::power.prop.test(p1 = p1, p2 = p2, power = 0.8, alternative = alternative)$n
-  n <- n * 2
   n |> 
     ceiling() |>
     as.integer()
