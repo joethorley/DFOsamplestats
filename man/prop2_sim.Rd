@@ -4,13 +4,15 @@
 \alias{prop2_sim}
 \title{Simulate Data for Two Sample Test Proportion}
 \usage{
-prop2_sim(p1, n)
+prop2_sim(p1, n, p2 = 1 - p1)
 }
 \arguments{
 \item{p1}{Proportion appearing in first group.}
 
 \item{n}{Total number of samples in study. This is different to
 \code{stats::power.prop.test()} where \code{n} is the number of samples in each group.}
+
+\item{p2}{Proportion appearing in second group.}
 }
 \value{
 A real vector of the number in the first and second group.
