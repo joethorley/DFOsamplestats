@@ -34,7 +34,7 @@ rate2_samplesize(p1 = 0.005, p2 = 0.0075)
 #> [1] 31197
 ```
 
-`DFOsamplestats` also provides functions to estimate the effect size ad
+`DFOsamplestats` also provides functions to estimate the effect size and
 p-values based on the number of individuals returning in each group
 given the number tagged.
 
@@ -77,12 +77,14 @@ rate2_power_analysis(p1 = 0.005, p2 = 0.0075, n = 31197)
 It is worth noting that `rate2_power()`, which is a wrapper on
 `stats::power.prop.test()`, uses a heuristic to calculate the power. As
 a result it is quicker but less reliable at small sample sizes than
-`rate2_power_analysis()` which performs a full power analysis although
-calculation of the p-values assumes that the likelihood profile is
-normally distributed.
+`rate2_power_analysis()` which performs a full power analysis (although
+calculation of the p-values still assumes that the likelihood profile is
+normally distributed).
 
-To understand why consider the fact that it is not possible to get a
-significant result with just 5 samples.
+To understand why `rate2_power()` is unreliable at small sample sizes
+consider the fact that it is not possible to get a significant result
+with just 5 samples yet it estimates the power to be 0.39 with 5 samples
+and a rate of 0.1!
 
 ``` r
 rate_effect(0, 5)
