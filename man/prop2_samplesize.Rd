@@ -7,9 +7,9 @@
 prop2_samplesize(p1, p2 = 1 - p1, alternative = "two.sided")
 }
 \arguments{
-\item{p1}{Proportion appearing in first group.}
+\item{p1}{Expected proportion of individuals returning from first group.}
 
-\item{p2}{Proportion appearing in second group.}
+\item{p2}{Expected proportion of individuals returning from second group.}
 
 \item{alternative}{A string specifying whether to perform a "two.sided",
 or "less" or "greater" one-sided test.}

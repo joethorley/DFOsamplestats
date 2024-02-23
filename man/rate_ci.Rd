@@ -7,18 +7,17 @@
 rate_ci(r, n)
 }
 \arguments{
-\item{r}{A numeric vector of the number of returns in each group.}
+\item{r}{A numeric vector of the number of individuals returnning in each group.}
 
-\item{n}{A numeric vector of the number of individuals in each group.
-If n is a scalar then it is assumed to be the total number of individuals
-split evenly between the groups.}
+\item{n}{The total number of individuals in the study or
+if a numeric vector the number individuals in each group.}
 }
 \value{
-A data frame with six columns of r, n, the estimate of the rate
+A data frame with six columns of group, r, n, the estimate of the rate
 and lower and upper 95\% confidence limits.
 }
 \description{
-Estimate Rate with Confidence Limits
+Estimates 95\% confidence limits using Wald method.
 }
 \examples{
 rate_ci(5, 10)

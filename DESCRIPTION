@@ -15,7 +15,6 @@ Depends:
 Imports:
    chk,
    stats,
-   term,
    tibble
 Suggests:
     covr,

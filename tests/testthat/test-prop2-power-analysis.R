@@ -21,3 +21,8 @@ test_that("multiplication works", {
   set.seed(99)
   expect_equal(prop2_power_analysis(0.45, 10, alternative = "greater"), 0.004)
 })
+
+test_that("multiplication works", {
+  set.seed(99)
+  prop2_power_analysis(p1 = 0.0005, n = 24574, p2 = 0.0075, alternative = "less")
+})

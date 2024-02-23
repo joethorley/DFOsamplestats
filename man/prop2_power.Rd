@@ -7,12 +7,12 @@
 prop2_power(p1, n, p2 = 1 - p1, alternative = "two.sided")
 }
 \arguments{
-\item{p1}{Proportion appearing in first group.}
+\item{p1}{Expected proportion of individuals returning from first group.}
 
-\item{n}{Total number of samples in study. This is different to
-\code{stats::power.prop.test()} where \code{n} is the number of samples in each group.}
+\item{n}{The total number of individuals in the study or
+if a numeric vector the number individuals in each group.}
 
-\item{p2}{Proportion appearing in second group.}
+\item{p2}{Expected proportion of individuals returning from second group.}
 
 \item{alternative}{A string specifying whether to perform a "two.sided",
 or "less" or "greater" one-sided test.}
