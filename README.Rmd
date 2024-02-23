@@ -17,63 +17,56 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/poissonconsulting/DFOsamplestats/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/poissonconsulting/DFOsamplestats/actions/workflows/R-CMD-check.yaml)
-[![Codecov test coverage](https://codecov.io/gh/poissonconsulting/DFOsamplestats/branch/main/graph/badge.svg)](https://app.codecov.io/gh/poissonconsulting/DFOsamplestats?branch=main)
 <!-- badges: end -->
 
-The goal of DFOsamplestats is to ...
+The goal of DFOsamplestats is to provide functions to facilitate frequentist power analyses for return rates.
 
 ## Installation
 
-`DFOsamplestats` can be installed from GitHub using the remotes package:
+`DFOsamplestats` can be installed from GitHub using the pak package:
 
 ```r
-install.packages("remotes")
-remotes::install_github("poissonconsulting/DFOsamplestats")
+install.packages("pak")
+pak::pak("poissonconsulting/DFOsamplestats")
 ```
 
 ## Usage
 
-`DFOsamplestats` provides functions to calculate the power (at a significance level of 0.05) or sample size to achieve a power of 0.8 at a significance level of 0.05 using `stats::power.prop.test()`.
-It is important to note that `n` is the total number of samples in the study (not the number of samples in each group).
+`DFOsamplestats` provides functions to calculate the power (at a significance level of 0.05) and sample size to achieve a power of 0.8 for the difference in the rate between two groups.
 
 ```{r}
 library(DFOsamplestats)
-prop2_power(0.1, n = 10)
-prop2_samplesize(0.1)
+rate2_power(p1 = 0.005, p2 = 0.0075, n = 31197)
+rate2_samplesize(p1 = 0.005, p2 = 0.0075)
 ```
-`DFOsamplestats` also provides functions to calculate the p-value and 95% confidence intervals based on the number of samples appearing in each group.
+`DFOsamplestats` also provides functions to estimate the effect size ad p-values 
+based on the number of individuals returning in each group given the number tagged.
 ```{r}
-prop2_pvalue(1, 9)
-prop2_ci(1, 9)
+rate_effect(r = c(156,  234), n = 31197)
+```
+And to simulate data
+```{r}
+set.seed(99)
+rate_sim(p = c(0.005, 0.0075), n = 31197)
+rate_sim(p = c(0.005, 0.0075), n = 31197)
+```
+Finally `DFOsamplestats` provides a function to perform a full power analysis.
+```{r}
+set.seed(100)
+rate2_power_analysis(p1 = 0.005, p2 = 0.0075, n = 31197)
 ```
 
-`DFOsamplestats` also provides a function to simulate data.
+It is worth noting that `rate2_power()`, which is a wrapper on `stats::power.prop.test()`,
+uses a heuristic to calculate the power.
+As a result it is quicker but less reliable at small sample sizes than `rate2_power_analysis()` which performs a full power analysis although calculation of the p-values assumes that the likelihood profile is normally distributed.
 
-```{r}
-set.seed(42)
-prop2_sim(0.1, 10)
-set.seed(42)
-prop2_sim(0.1, 10)
-prop2_sim(0.1, 10)
-```
-which is called internally by a function which performs a full power analysis.
-```{r}
-prop2_power_analysis(0.1, 10)
-```
-
-It is worth noting that the power estimated by `prop2_power_analysis(0.1, 10)`
-is slightly less than that estimated by `prop2_power(0.1, 10)`.
-This is because `prop2_power()` uses a heuristic. 
-To understand why `prop2_power()` is less reliable at small sample sizes
-consider the fact that it is not possible to get a significant
+To understand why consider the fact that it is not possible to get a significant
 result with just 5 samples.
 ```{r}
-prop2_pvalue(0, 5)
-prop2_power(0.1, 5)
-prop2_power_analysis(0.1, 5)
+rate_effect(0, 5)
+rate2_power(0.1, 5)
+rate2_power_analysis(0.1, 5)
 ```
-
-This is because
 
 ## Contribution
 
