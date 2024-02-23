@@ -39,17 +39,17 @@ rate_effect <- function(r, n) {
   data <- tibble::tibble(group = group, r = r, n = n)
   
   if(nrow(data) == 1) {
-    mod <- glm(cbind(r,n-r)~ 1, data = data, family = binomial)
+    mod <- stats::glm(cbind(r,n-r)~ 1, data = data, family = stats::binomial)
   } else {
-    mod <- glm(cbind(r,n-r)~ group, data = data, family = binomial)
+    mod <- stats::glm(cbind(r,n-r)~ group, data = data, family = stats::binomial)
   }
-  pred <- predict(mod, se.fit = TRUE)
+  pred <- stats::predict(mod, se.fit = TRUE)
   data$estimate <- unname(pred$fit)
-  data$lower <- data$estimate + qnorm(0.025) * pred$se.fit
-  data$upper <- data$estimate + qnorm(0.975) * pred$se.fit
-  data$estimate <- plogis(data$estimate)
-  data$lower <- plogis(data$lower)
-  data$upper <- plogis(data$upper)
+  data$lower <- data$estimate + stats::qnorm(0.025) * pred$se.fit
+  data$upper <- data$estimate + stats::qnorm(0.975) * pred$se.fit
+  data$estimate <- stats::plogis(data$estimate)
+  data$lower <- stats::plogis(data$lower)
+  data$upper <- stats::plogis(data$upper)
   coef <- summary(mod)$coefficients
   data$pvalue <- as.vector(coef[,"Pr(>|z|)"])
   data

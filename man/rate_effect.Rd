@@ -7,9 +7,9 @@
 rate_effect(r, n)
 }
 \arguments{
-\item{r}{A numeric vector of the number of individuals returnning in each group.}
+\item{r}{A numeric vector of the number of individuals returning in each group.}
 
-\item{n}{The total number of individuals in the study or
+\item{n}{The total number of individuals in the study (divided evenly among groups) or
 if a numeric vector the number individuals in each group.}
 }
 \value{

@@ -1,15 +1,16 @@
 #' Parameters for functions
 #'
 #' Descriptions of the parameters for functions
-
+#' 
 #' @param alternative A string specifying whether to perform a "two.sided",
 #' or "less" or "greater" one-sided test.
-#' @param n The total number of individuals in the study or 
+#' @param p1 A numeric scalar of the proportion of individuals expected to return from the first group.
+#' @param p2 A numeric scalar of the proportion of individuals expected to return from the second group.
+#' @param p A numeric vector of the proportion of individuals expected to return in each group.
+#' @param r A numeric vector of the number of individuals returning in each group.
+#' @param n The total number of individuals in the study (divided evenly among groups) or 
 #' if a numeric vector the number individuals in each group.
 #' @param nsims Number of simulations to perform.
-#' @param p1 Expected proportion of individuals returning from first group.
-#' @param p2 Expected proportion of individuals returning from second group.
-#' @param r A numeric vector of the number of individuals returnning in each group.
 #' 
 #' @keywords internal
 #' @name params

@@ -7,16 +7,18 @@
 \item{alternative}{A string specifying whether to perform a "two.sided",
 or "less" or "greater" one-sided test.}
 
-\item{n}{The total number of individuals in the study or
+\item{p1}{A numeric scalar of the proportion of individuals expected to return from the first group.}
+
+\item{p2}{A numeric scalar of the proportion of individuals expected to return from the second group.}
+
+\item{p}{A numeric vector of the proportion of individuals expected to return in each group.}
+
+\item{r}{A numeric vector of the number of individuals returning in each group.}
+
+\item{n}{The total number of individuals in the study (divided evenly among groups) or
 if a numeric vector the number individuals in each group.}
 
 \item{nsims}{Number of simulations to perform.}
-
-\item{p1}{Expected proportion of individuals returning from first group.}
-
-\item{p2}{Expected proportion of individuals returning from second group.}
-
-\item{r}{A numeric vector of the number of individuals returnning in each group.}
 }
 \description{
 Descriptions of the parameters for functions

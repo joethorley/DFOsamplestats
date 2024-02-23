@@ -7,12 +7,12 @@
 prop2_power(p1, n, p2 = 1 - p1, alternative = "two.sided")
 }
 \arguments{
-\item{p1}{Expected proportion of individuals returning from first group.}
+\item{p1}{A numeric scalar of the proportion of individuals expected to return from the first group.}
 
-\item{n}{The total number of individuals in the study or
+\item{n}{The total number of individuals in the study (divided evenly among groups) or
 if a numeric vector the number individuals in each group.}
 
-\item{p2}{Expected proportion of individuals returning from second group.}
+\item{p2}{A numeric scalar of the proportion of individuals expected to return from the second group.}
 
 \item{alternative}{A string specifying whether to perform a "two.sided",
 or "less" or "greater" one-sided test.}
