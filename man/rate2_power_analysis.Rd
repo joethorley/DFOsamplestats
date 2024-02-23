@@ -4,7 +4,7 @@
 \alias{rate2_power_analysis}
 \title{Power Analysis for Rates}
 \usage{
-rate2_power_analysis(p1, n, p2 = NULL, nsims = 1000)
+rate2_power_analysis(p1, n, p2 = NULL, alternative = "two.sided", nsims = 1000)
 }
 \arguments{
 \item{p1}{A numeric scalar of the proportion of individuals expected to return from the first group.}
@@ -14,6 +14,9 @@ if a numeric vector the number individuals in each group.}
 
 \item{p2}{A numeric scalar of the proportion of individuals expected to return from the second group.}
 
+\item{alternative}{A string specifying whether to perform a "two.sided",
+or "less" or "greater" one-sided test.}
+
 \item{nsims}{Number of simulations to perform.}
 }
 \value{
@@ -22,4 +25,8 @@ A real scalar of the power.
 \description{
 If p2 is NULL estimates the power for detecting whether p1 is different from 0.5.
 Other estimates the power for detecting a difference between the two groups.
+}
+\examples{
+rate2_power_analysis(0.6, 10)
+
 }
