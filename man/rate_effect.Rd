@@ -4,13 +4,16 @@
 \alias{rate_effect}
 \title{Estimate Rates with Confidence Limits and P-Values}
 \usage{
-rate_effect(r, n)
+rate_effect(r, n, alternative = "two.sided")
 }
 \arguments{
 \item{r}{A numeric vector of the number of individuals returning in each group.}
 
 \item{n}{The total number of individuals in the study (divided evenly among groups) or
 if a numeric vector the number individuals in each group.}
+
+\item{alternative}{A string specifying whether to perform a "two.sided",
+or "less" or "greater" one-sided test.}
 }
 \value{
 A data frame with six columns of group, r, n, the estimate of the rate,

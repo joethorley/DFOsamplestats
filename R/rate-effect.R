@@ -13,7 +13,7 @@
 #' rate_effect(5, 10)
 #' rate_effect(c(1,9), c(10,10))
 #' rate_effect(c(1,9), 20)
-rate_effect <- function(r, n) {
+rate_effect <- function(r, n, alternative = "two.sided") {
   chk_vector(r)
   chk_vector(n)
   chk_whole_numeric(r)
@@ -22,11 +22,13 @@ rate_effect <- function(r, n) {
   chk_gte(r)
   chk_gte(n)
   chk_lte(r, n)
+  chk_string(alternative)
+  chk_subset(alternative, c("two.sided", "greater", "less"))
   
   if(!length(r)) {
-    return(tibble::tibble(group = factor(), r = integer(0), n = integer(0), estimate = numeric(0), lower = numeric(0), upper = numeric(0)))
+    return(tibble::tibble(group = factor(), r = integer(0), n = integer(0), estimate = numeric(0), lower = numeric(0), upper = numeric(0), pvalue = numeric(0)))
   }
-
+  
   if(length(n) == 1) {
     n <- round(n / length(r))
     chk_lte(r, n)
@@ -52,5 +54,15 @@ rate_effect <- function(r, n) {
   data$upper <- stats::plogis(data$upper)
   coef <- summary(mod)$coefficients
   data$pvalue <- as.vector(coef[,"Pr(>|z|)"])
+  greater <- data$estimate > data$estimate[1]
+  greater[1] <- data$estimate[1] > 0.5
+  
+  if(alternative == "greater") {
+    data$pvalue[greater] <- data$pvalue[greater] / 2
+    data$pvalue[!greater] <- 1
+  } else if(alternative == "less") {
+    data$pvalue[!greater] <- data$pvalue[!greater] / 2
+    data$pvalue[greater] <- 1      
+  }
   data
 }
