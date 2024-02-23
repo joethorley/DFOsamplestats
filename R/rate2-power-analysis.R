@@ -6,8 +6,10 @@ rate_sim_iter <- function(i, p, n, alternative) {
 
 #' Power Analysis for Rates
 #' 
+#' Uses [`rate_sim()`] and [`rate_effect()`] to simulate the statistical 
+#' power (probability of a p-value < 0.05). 
 #' If p2 is NULL estimates the power for detecting whether p1 is different from 0.5.
-#' Other estimates the power for detecting a difference between the two groups.
+#' Otherwise estimates the power for detecting a difference between the two groups.
 #'
 #' @inheritParams params
 #' @return A real scalar of the power.

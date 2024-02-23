@@ -20,9 +20,10 @@ A data frame with six columns of group, r, n, the estimate of the rate,
 the lower and upper 95\% confidence limits and the p-value.
 }
 \description{
-Estimates 95\% confidence limits using Wald method.
-The p-value for the first group is for p = 0.5 while the p-value for the
-subsequent groups is for equal probabilities.
+Estimates rates with 95\% confidence limits.
+The confidence limits and p-values are calculated assuming a normal distributed likelihood profile.
+The p-value for the first group is for p1 = 0.5 while the p-value for
+subsequent groups is for pn = p1.
 }
 \examples{
 rate_effect(5, 10)

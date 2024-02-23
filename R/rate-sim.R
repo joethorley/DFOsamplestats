@@ -1,8 +1,7 @@
 #' Simulate Data for Rates
 #'
 #' @inheritParams params
-#'
-#' @return A real vector of the number in the first and second group.
+#' @return A tibble with four columns of the group, p, n and r (integer vector of the simulated number of individuals in each group).
 #' @seealso [`rate_effect()`] and [`rate2_power_analysis()`]
 #' @export
 #'

@@ -13,7 +13,7 @@ rate_sim(p, n)
 if a numeric vector the number individuals in each group.}
 }
 \value{
-A real vector of the number in the first and second group.
+A tibble with four columns of the group, p, n and r (integer vector of the simulated number of individuals in each group).
 }
 \description{
 Simulate Data for Rates
