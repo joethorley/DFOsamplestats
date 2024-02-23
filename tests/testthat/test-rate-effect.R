@@ -1,5 +1,5 @@
 test_that("rate_ci works", {
-  expect_snapshot_output({
+  expect_snapshot({
     rate_effect(r = integer(0), n = integer(0))
     rate_effect(r = 5, n = 10)
     rate_effect(r = c(3,7), n = 20)
