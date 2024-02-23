@@ -1,0 +1,21 @@
+test_that("rate2_samplesize edge cases", {
+  expect_error(rate2_samplesize(numeric(0), numeric(0)), "`p1` must be a number \\(non-missing numeric scalar\\).")
+  expect_error(rate2_samplesize(c(0.3,0.4), c(0.7,0.9)), "`p1` must be a number \\(non-missing numeric scalar\\).")
+  expect_error(rate2_samplesize(1.1, 0.1), "`p1` must be between 0 and 1, not 1.1.")
+  expect_error(rate2_samplesize(0.6, 0.9), "The sum of `p1` and `p2` must be less than or equal to 1, not 1.5.")
+  expect_error(rate2_samplesize(NA_real_, 0.9), "`p1` must be a number \\(non-missing numeric scalar\\).")
+  expect_error(rate2_samplesize(0.1, NA_real_), "`p2` must be a number \\(non-missing numeric scalar\\).")
+})
+
+test_that("rate2_samplesize works", {
+  expect_identical(rate2_samplesize(0, 1), 4L)
+  expect_identical(rate2_samplesize(0, 1, alternative = "less"), 3L)
+  expect_identical(rate2_samplesize(0.9, 0.1), 10L)
+  expect_identical(rate2_samplesize(0.9, 0.1, alternative = "less"), Inf)
+  expect_identical(rate2_samplesize(0.9, 0.1, alternative = "greater"), 8L)
+  expect_identical(rate2_samplesize(0.1, 0.9, alternative = "less"), 8L)
+  expect_identical(rate2_samplesize(0.01, 0.09, alternative = "less"), 182L)
+  expect_identical(rate2_samplesize(0.45, 0.55, alternative = "less"), 617L)
+  expect_identical(rate2_samplesize(0.005, 0.0075), 31197L)
+  expect_identical(rate2_samplesize(0.005, 0.0075, alternative = "less"), 24574L)
+})

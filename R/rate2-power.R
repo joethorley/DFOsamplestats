@@ -11,18 +11,18 @@
 #'
 #' @inheritParams params
 #' @return A real scalar of the power.
-#' @seealso [`prop2_samplesize()`]
+#' @seealso [`rate2_samplesize()`]
 #' @export
 #'
 #' @examples
-#' prop2_power(0.9, n = 10)
-#' prop2_power(0.1, n = 10)
-#' prop2_power(0.01, 0.09, n = 10)
-#' prop2_power(0.01, 0.09, n = 100)
-#' prop2_power(0.45, 10)
-#' prop2_power(0.005, p2 = 0.0075, 1000)
-#' prop2_power(0.005, p2 = 0.0075, 1000, alternative = "greater")
-prop2_power <- function(p1, n, p2 = 1 - p1, alternative = "two.sided") {
+#' rate2_power(0.9, n = 10)
+#' rate2_power(0.1, n = 10)
+#' rate2_power(0.01, 0.09, n = 10)
+#' rate2_power(0.01, 0.09, n = 100)
+#' rate2_power(0.45, 10)
+#' rate2_power(0.005, p2 = 0.0075, 1000)
+#' rate2_power(0.005, p2 = 0.0075, 1000, alternative = "greater")
+rate2_power <- function(p1, n, p2 = 1 - p1, alternative = "two.sided") {
   chk_number(p1)
   chk_number(p2)
   chk_range(p1)

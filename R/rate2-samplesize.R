@@ -16,14 +16,14 @@
 #' @export
 #'
 #' @examples
-#' prop2_samplesize(0.9)
-#' prop2_samplesize(0.1)
-#' prop2_samplesize(0.01, 0.09)
-#' prop2_samplesize(0.45)
-#' prop2_samplesize(0.005, 0.0075)
-#' prop2_samplesize(0.005, 0.0075, alternative = "less")
-#' prop2_samplesize(0.005, 0.0075, alternative = "greater")
-prop2_samplesize <- function(p1, p2 = 1 - p1, alternative = "two.sided") {
+#' rate2_samplesize(0.9)
+#' rate2_samplesize(0.1)
+#' rate2_samplesize(0.01, 0.09)
+#' rate2_samplesize(0.45)
+#' rate2_samplesize(0.005, 0.0075)
+#' rate2_samplesize(0.005, 0.0075, alternative = "less")
+#' rate2_samplesize(0.005, 0.0075, alternative = "greater")
+rate2_samplesize <- function(p1, p2 = 1 - p1, alternative = "two.sided") {
   chk_number(p1)
   chk_number(p2)
   chk_range(p1)

@@ -18,7 +18,7 @@ rate2_power_analysis <- function(p1, n, p2 = NULL, nsims = 1000) {
   
   sims <- lapply(1:nsims, FUN = rate_sim_iter, p = p, n = n)
   # 
-  # pvalues <- lapply(sims, FUN = prop2_pvalue_fun, alternative = alternative)
+  # pvalues <- lapply(sims, FUN = rate2_pvalue_fun, alternative = alternative)
   # pvalues <- unlist(pvalues)
   # sum(pvalues < 0.05) / length(pvalues)
 }
