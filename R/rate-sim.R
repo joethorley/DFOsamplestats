@@ -3,6 +3,7 @@
 #' @inheritParams params
 #'
 #' @return A real vector of the number in the first and second group.
+#' @seealso [`rate_effect()`] and [`rate2_power_analysis()`]
 #' @export
 #'
 #' @examples

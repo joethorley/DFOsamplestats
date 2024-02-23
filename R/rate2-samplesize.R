@@ -13,6 +13,7 @@
 #' @inheritParams params
 #'
 #' @return A integer of the required total sample size. 
+#' @seealso [`rate2_power()`]
 #' @export
 #'
 #' @examples

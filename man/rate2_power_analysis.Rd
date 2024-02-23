@@ -30,3 +30,6 @@ Other estimates the power for detecting a difference between the two groups.
 rate2_power_analysis(0.9, 10, nsims = 100)
 rate2_power(0.005, p2 = 0.0075, 1000, alternative = "greater")
 }
+\seealso{
+\code{\link[=rate2_power]{rate2_power()}} and \code{\link[=rate_effect]{rate_effect()}}
+}

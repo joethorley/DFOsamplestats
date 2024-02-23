@@ -11,6 +11,7 @@ rate_sim_iter <- function(i, p, n, alternative) {
 #'
 #' @inheritParams params
 #' @return A real scalar of the power.
+#' @seealso [`rate2_power()`] and [`rate_effect()`]
 #' @export
 #' @examples
 #' rate2_power_analysis(0.9, 10, nsims = 100)

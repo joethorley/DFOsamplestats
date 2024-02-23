@@ -11,7 +11,7 @@
 #'
 #' @inheritParams params
 #' @return A real scalar of the power.
-#' @seealso [`rate2_samplesize()`]
+#' @seealso [`rate2_samplesize()`] and [`rate2_power_analysis()`]
 #' @export
 #'
 #' @examples

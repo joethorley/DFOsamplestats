@@ -27,3 +27,6 @@ rate_sim(0.9, 10)
 set.seed(100)
 rate_sim(c(0.9, 0.3), 20)
 }
+\seealso{
+\code{\link[=rate_effect]{rate_effect()}} and \code{\link[=rate2_power_analysis]{rate2_power_analysis()}}
+}

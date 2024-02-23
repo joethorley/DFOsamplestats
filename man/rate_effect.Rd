@@ -29,3 +29,6 @@ rate_effect(5, 10)
 rate_effect(c(1,9), c(10,10))
 rate_effect(c(1,9), 20)
 }
+\seealso{
+\code{\link[=rate_sim]{rate_sim()}} and \code{\link[=rate2_power_analysis]{rate2_power_analysis()}}
+}

@@ -41,5 +41,5 @@ rate2_power(0.005, p2 = 0.0075, 1000)
 rate2_power(0.005, p2 = 0.0075, 1000, alternative = "greater")
 }
 \seealso{
-\code{\link[=rate2_samplesize]{rate2_samplesize()}}
+\code{\link[=rate2_samplesize]{rate2_samplesize()}} and \code{\link[=rate2_power_analysis]{rate2_power_analysis()}}
 }

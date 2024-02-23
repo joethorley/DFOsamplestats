@@ -38,3 +38,6 @@ rate2_samplesize(0.005, 0.0075)
 rate2_samplesize(0.005, 0.0075, alternative = "less")
 rate2_samplesize(0.005, 0.0075, alternative = "greater")
 }
+\seealso{
+\code{\link[=rate2_power]{rate2_power()}}
+}
