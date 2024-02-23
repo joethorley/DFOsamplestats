@@ -23,6 +23,5 @@ rate2_power_analysis <- function(p1, n, p2 = NULL, alternative = "two.sided", ns
   
   pvalues <- vapply(1:nsims, FUN = rate_sim_iter, FUN.VALUE = 1, 
                     p = p, n = n, alternative = alternative)
-  print(pvalues)
   sum(pvalues < 0.05) / length(pvalues)
 }

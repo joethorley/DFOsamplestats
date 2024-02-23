@@ -33,7 +33,7 @@ rate2_power <- function(p1, n, p2 = 1 - p1, alternative = "two.sided") {
   chk_string(alternative)
   chk_subset(alternative, c("two.sided", "greater", "less"))
 
-  if((alternative == "greater" & p1 < p2) | (alternative == "less" & p1 > p2)) {
+  if((alternative == "greater" & p2 <= p1) | (alternative == "less" & p2 >= p1)) {
     return(0)
   }
   if(alternative %in% c("greater", "less")) {

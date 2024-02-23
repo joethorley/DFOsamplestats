@@ -27,6 +27,6 @@ If p2 is NULL estimates the power for detecting whether p1 is different from 0.5
 Other estimates the power for detecting a difference between the two groups.
 }
 \examples{
-rate2_power_analysis(0.6, 10)
-
+rate2_power_analysis(0.9, 10, nsims = 100)
+rate2_power(0.005, p2 = 0.0075, 1000, alternative = "greater")
 }
