@@ -4,6 +4,8 @@
 #' 
 #' @param alternative A string specifying whether to perform a "two.sided",
 #' or "less" or "greater" one-sided test.
+#' @param alpha A numeric vector of the first shape parameter for the beta distribution.
+#' @param beta A numeric vector of the second shape parameter for the beta distribution.
 #' @param p1 A numeric scalar of the proportion of individuals expected to return from the first group.
 #' @param p2 A numeric scalar of the proportion of individuals expected to return from the second group.
 #' @param p A numeric vector of the proportion of individuals expected to return in each group.

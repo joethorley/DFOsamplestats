@@ -8,7 +8,7 @@
 #' @inheritParams params
 #' @return A data frame with six columns of group, r, n, the estimate of the rate, 
 #' the lower and upper 95% confidence limits and the p-value.
-#' @seealso [`rate_sim()`] and [`rate2_power_analysis()`]
+#' @seealso [`rate_sim()`], [`rate2_power_analysis()`] and  [`rate_effect_bayesian()`]
 #' @export
 #'
 #' @examples
