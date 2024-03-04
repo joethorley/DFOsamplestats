@@ -17,6 +17,13 @@
 #' rate_effect_bayesian(0, 5, 10, 10)
 #' }
 rate_effect_bayesian <- function(r, n, alpha = 1, beta = 1, alternative = "two.sided") {
+  if (!requireNamespace("nimble", quietly = TRUE)) {
+    stop(
+      "Package \"nimble\" must be installed to use this function.",
+      call. = FALSE
+    )
+  }
+  
   chk_vector(r)
   chk_vector(n)
   chk_vector(alpha)
@@ -67,6 +74,8 @@ rate_effect_bayesian <- function(r, n, alpha = 1, beta = 1, alternative = "two.s
   group <- factor(1:length(r))
   
   data <- tibble::tibble(group = group, r = r, n = n, alpha = alpha, beta = beta)
+  
+  
   
   .NotYetImplemented()
 }

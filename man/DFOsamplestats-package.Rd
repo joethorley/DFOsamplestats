@@ -4,9 +4,9 @@
 \name{DFOsamplestats-package}
 \alias{DFOsamplestats}
 \alias{DFOsamplestats-package}
-\title{DFOsamplestats: a package for sample statistics and testing data relationships}
+\title{DFOsamplestats: Significance, power analysis and effect size estimation for tagging returns and scale age proportions}
 \description{
-What the package does (one paragraph).
+Provides wrapper functions for significance, power analysis and effect size estimation for tagging returns and scale age proportions.
 }
 \seealso{
 Useful links:
