@@ -2,6 +2,7 @@
 
 export(rate2_power)
 export(rate2_power_analysis)
+export(rate2_power_analysis_bayesian)
 export(rate2_samplesize)
 export(rate_effect)
 export(rate_effect_bayesian)

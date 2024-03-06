@@ -16,7 +16,7 @@
 #' rate_effect_bayesian(0, 5)
 #' rate_effect_bayesian(0, 5, 10, 10)
 #' rate_effect_bayesian(c(0,5), c(5,5), 10, 10)
-rate_effect_bayesian <- function(r, n, alpha = 1, beta = 1, alternative = "two.sided") {
+rate_effect_bayesian <- function(r, n, alpha = 1, beta = 1, alternative = "two.sided", niter = 10000) {
   if (!requireNamespace("rjags", quietly = TRUE)) {
     stop(
       "Package \"rjags\" must be installed to use this function.",
@@ -48,6 +48,8 @@ rate_effect_bayesian <- function(r, n, alpha = 1, beta = 1, alternative = "two.s
   chk_gte(beta, 1)
   chk_string(alternative)
   chk_subset(alternative, c("two.sided", "greater", "less"))
+  chk_whole_number(niter)
+  chk_gt(niter)
   
   if(!length(r)) {
     return(tibble::tibble(
@@ -89,7 +91,8 @@ rate_effect_bayesian <- function(r, n, alpha = 1, beta = 1, alternative = "two.s
         for(i in 1:nObs) {
           bGroup[i] ~ dbeta(alpha[i], beta[i])
           r[i] ~ dbin(bGroup[i], n[i])
-          bDiff[i] <- bGroup[i] - bGroup[1]
+          bDiff5[i] <- bGroup[i] - 0.5
+          bDiff1[i] <- bGroup[i] - bGroup[1]
         }
       }", con = file)
   
@@ -97,20 +100,25 @@ rate_effect_bayesian <- function(r, n, alpha = 1, beta = 1, alternative = "two.s
   seed <- round(stats::runif(1, 0, 100000))
   inits <- list(.RNG.name = "base::Wichmann-Hill", .RNG.seed = seed)
   model <- rjags::jags.model(file, data = list, n.chains = 3, quiet = TRUE, inits = inits)
-  utils::capture.output(mcmc <- rjags::jags.samples(model, variable.names = c("bGroup", "bDiff"), n.iter = 10000))
+  utils::capture.output(mcmc <- rjags::jags.samples(model, variable.names = c("bGroup", "bDiff5", "bDiff1"), n.iter = niter))
   group <- mcmc$bGroup
   group <- stats::coef(group)
-  group$pvalue <- 1/2^group$svalue
   group$svalue <- NULL
   group$term <- NULL
+  
+  diff5 <- mcmc$bDiff5
+  diff5 <- stats::coef(diff5)
+  diff5$pvalue <- 1/2^diff5$svalue
+  group$pvalue <- diff5$pvalue
   group$diff <- group$estimate - 0.5
   
   if(nrow(data) > 1) {
-    diff <- mcmc$bDiff
-    diff <- stats::coef(diff)
-    diff$pvalue <- 1/2^diff$svalue
-    group$pvalue[2:nrow(data)] <- diff$pvalue[2:nrow(data)]
-    group$diff[2:nrow(data)] <- diff$estimate[2:nrow(data)]
+    diff1 <- mcmc$bDiff1
+    diff1 <- stats::coef(diff1)
+    diff1$pvalue <- 1/2^diff1$svalue
+    
+    group$pvalue[2:nrow(data)] <- diff1$pvalue[2:nrow(data)]
+    group$diff[2:nrow(data)] <- group$estimate[2:nrow(data)] - group$estimate[1]
   }
   if(alternative != "two.sided") {
     group$pvalue <- group$pvalue / 2

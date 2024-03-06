@@ -4,7 +4,14 @@
 \alias{rate_effect_bayesian}
 \title{Estimate Rates with Credible Limits and P-Values}
 \usage{
-rate_effect_bayesian(r, n, alpha = 1, beta = 1, alternative = "two.sided")
+rate_effect_bayesian(
+  r,
+  n,
+  alpha = 1,
+  beta = 1,
+  alternative = "two.sided",
+  niter = 10000
+)
 }
 \arguments{
 \item{r}{A numeric vector of the number of individuals returning in each group.}
@@ -18,6 +25,8 @@ if a numeric vector the number individuals in each group.}
 
 \item{alternative}{A string specifying whether to perform a "two.sided",
 or "less" or "greater" one-sided test.}
+
+\item{niter}{The number of iterations per chain for MCMC sampling.}
 }
 \value{
 A data frame with eight columns of group, r, n, alpha, beta, the estimate of the rate,

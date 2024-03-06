@@ -17,7 +17,7 @@ rate_sim_iter <- function(i, p, n, alternative) {
 #' @export
 #' @examples
 #' rate2_power_analysis(0.9, 10, nsims = 100)
-#' rate2_power(0.005, p2 = 0.0075, 1000, alternative = "greater")
+#' rate2_power_analysis(0.005, p2 = 0.0075, n = 1000, alternative = "greater", nsims = 100)
 rate2_power_analysis <- function(p1, n, p2 = NULL, alternative = "two.sided", nsims = 1000) {
   chk_whole_number(nsims)
   chk_gte(nsims, 10)

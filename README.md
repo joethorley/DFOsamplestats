@@ -8,8 +8,8 @@
 [![R-CMD-check](https://github.com/poissonconsulting/DFOsamplestats/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/poissonconsulting/DFOsamplestats/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The goal of DFOsamplestats is to provide functions to facilitate
-frequentist power analyses for return rates.
+The goal of DFOsamplestats is to provide functions to facilitate power
+analyses for return rates.
 
 ## Installation
 
@@ -65,7 +65,7 @@ rate_sim(p = c(0.005, 0.0075), n = 31197)
 #> 2 2     0.0075 15598   125
 ```
 
-Finally `DFOsamplestats` provides a function to perform a full power
+`DFOsamplestats` also provides a function to perform a full power
 analysis.
 
 ``` r
@@ -74,28 +74,52 @@ rate2_power_analysis(p1 = 0.005, p2 = 0.0075, n = 31197)
 #> [1] 0.8
 ```
 
+### Bayesian
+
+Finally `DFOsamplestats` provide `rate_effect_bayesian()` and
+`rate2_power_analysis_bayesian()` to estimate effect sizes and power
+incorporating prior information.
+
+``` r
+set.seed(100)
+rate_effect_bayesian(r = 1, n = 10, alpha = 5, beta = 5)
+#> Registered S3 method overwritten by 'mcmcr':
+#>   method               from 
+#>   as.mcmc.list.mcarray rjags
+#>   group r  n alpha beta estimate     lower     upper     pvalue
+#> 1     1 1 10     5    5 0.294849 0.1278991 0.5086098 0.06363121
+rate2_power_analysis(p1 = 0.005, p2 = 0.0075, n = 31197, nsims = 100)
+#> [1] 0.77
+```
+
+### Heuristics
+
 It is worth noting that `rate2_power()`, which is a wrapper on
 `stats::power.prop.test()`, uses a heuristic to calculate the power. As
 a result it is quicker but less reliable at small sample sizes than
-`rate2_power_analysis()` which performs a full power analysis (although
-calculation of the p-values still assumes that the likelihood profile is
-normally distributed).
-
-To understand why `rate2_power()` is unreliable at small sample sizes
-consider the fact that it is not possible to get a significant result
-with just 5 samples yet it estimates the power to be 0.39 with 5 samples
-and a rate of 0.1!
+`rate2_power_analysis()` which performs a full power analysis. However,
+`rate2_power_analysis()` still assumes that the likelihood profile is
+normally distributed which is typically not the case with little data at
+very low or high rates. For the most reliable estimate use
+`rate2_power_analysis_bayesian()` with `nsims = 1000`.
 
 ``` r
+set.seed(100)
 rate_effect(0, 5)
 #> # A tibble: 1 × 7
 #>   group     r     n estimate lower upper pvalue
 #>   <fct> <int> <int>    <dbl> <dbl> <dbl>  <dbl>
 #> 1 1         0     5 2.21e-11     0     1   1.00
+rate_effect_bayesian(0, 5)
+#>   group r n alpha beta  estimate       lower     upper     pvalue
+#> 1     1 0 5     1    1 0.1075121 0.004024161 0.4667683 0.03583214
+
 rate2_power(0.1, 5)
 #> [1] 0.3877521
 rate2_power_analysis(0.1, 5)
 #> [1] 0
+rate2_power_analysis_bayesian(0.1, 5, nsims = 100)
+#> [1] 0.66
 ```
 
 ## Contribution

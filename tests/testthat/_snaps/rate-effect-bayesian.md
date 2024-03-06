@@ -9,32 +9,32 @@
     Code
       rate_effect_bayesian(r = 5, n = 10)
     Output
-        group r  n alpha beta  estimate     lower     upper       pvalue
-      1     1 5 10     1    1 0.4994782 0.2349923 0.7665628 3.333222e-05
+        group r  n alpha beta  estimate     lower     upper    pvalue
+      1     1 5 10     1    1 0.4994782 0.2349923 0.7665628 0.9978001
     Code
       rate_effect_bayesian(r = c(3, 7), n = 20)
     Output
-        group r  n alpha beta  estimate     lower     upper       pvalue
-      1     1 3 10     1    1 0.3213334 0.1116669 0.6028889 3.333222e-05
-      2     2 7 10     1    1 0.6740573 0.3870648 0.8886976 8.263058e-02
+        group r  n alpha beta  estimate     lower     upper     pvalue
+      1     1 3 10     1    1 0.3213334 0.1116669 0.6028889 0.21902603
+      2     2 7 10     1    1 0.6740573 0.3870648 0.8886976 0.08263058
     Code
       rate_effect_bayesian(r = c(3, 7), n = c(20, 20))
     Output
-        group r  n alpha beta  estimate      lower     upper       pvalue
-      1     1 3 20     1    1 0.1725455 0.05350587 0.3584684 3.333222e-05
-      2     2 7 20     1    1 0.3624148 0.18164472 0.5732216 1.502283e-01
+        group r  n alpha beta  estimate      lower     upper      pvalue
+      1     1 3 20     1    1 0.1725455 0.05350587 0.3584684 0.002033266
+      2     2 7 20     1    1 0.3624148 0.18164472 0.5732216 0.150228326
     Code
       rate_effect_bayesian(c(1, 9), c(10, 10))
     Output
-        group r  n alpha beta  estimate      lower     upper       pvalue
-      1     1 1 10     1    1 0.1483582 0.02420723 0.4155067 3.333222e-05
-      2     2 9 10     1    1 0.8499231 0.58735841 0.9768900 1.033299e-03
+        group r  n alpha beta  estimate      lower     upper      pvalue
+      1     1 1 10     1    1 0.1483582 0.02420723 0.4155067 0.009833006
+      2     2 9 10     1    1 0.8499231 0.58735841 0.9768900 0.001033299
     Code
       rate_effect_bayesian(c(1, 9), 20)
     Output
         group r  n alpha beta  estimate      lower     upper       pvalue
-      1     1 1 10     1    1 0.1479366 0.02282342 0.4095706 3.333222e-05
-      2     2 9 10     1    1 0.8519098 0.58245234 0.9775477 8.333056e-04
+      1     1 1 10     1    1 0.1479366 0.02282342 0.4095706 0.0108329722
+      2     2 9 10     1    1 0.8519098 0.58245234 0.9775477 0.0008333056
     Code
       rate_effect_bayesian(c(1, 9), 40)
     Output
@@ -44,13 +44,13 @@
     Code
       rate_effect_bayesian(9, 10)
     Output
-        group r  n alpha beta  estimate     lower     upper       pvalue
-      1     1 9 10     1    1 0.8489855 0.5761052 0.9783689 3.333222e-05
+        group r  n alpha beta  estimate     lower     upper     pvalue
+      1     1 9 10     1    1 0.8489855 0.5761052 0.9783689 0.01363288
     Code
       rate_effect_bayesian(9, 10, alternative = "greater")
     Output
-        group r  n alpha beta  estimate     lower     upper       pvalue
-      1     1 9 10     1    1 0.8543252 0.6053509 0.9766392 1.666611e-05
+        group r  n alpha beta  estimate     lower     upper      pvalue
+      1     1 9 10     1    1 0.8543252 0.6053509 0.9766392 0.003816539
     Code
       rate_effect_bayesian(9, 10, alternative = "less")
     Output
@@ -66,8 +66,8 @@
       rate_effect_bayesian(r = c(3, 7), n = c(20, 20), alternative = "less")
     Output
         group r  n alpha beta  estimate      lower     upper       pvalue
-      1     1 3 20     1    1 0.1722781 0.05450717 0.3640557 1.666611e-05
-      2     2 7 20     1    1 0.3581266 0.17872386 0.5604080 1.000000e+00
+      1     1 3 20     1    1 0.1722781 0.05450717 0.3640557 0.0007166428
+      2     2 7 20     1    1 0.3581266 0.17872386 0.5604080 1.0000000000
     Code
       rate_effect_bayesian(r = c(25, 35), n = c(100, 100), alternative = "greater")
     Output
@@ -86,18 +86,18 @@
     Code
       rate_effect_bayesian(1, 10, alpha = 10, beta = 2)
     Output
-        group r  n alpha beta  estimate    lower    upper       pvalue
-      1     1 1 10    10    2 0.5019055 0.295641 0.702916 3.333222e-05
+        group r  n alpha beta  estimate    lower    upper    pvalue
+      1     1 1 10    10    2 0.5019055 0.295641 0.702916 0.9870004
     Code
       rate_effect_bayesian(10, 20)
     Output
-        group  r  n alpha beta  estimate     lower     upper       pvalue
-      1     1 10 20     1    1 0.4970124 0.2930054 0.7019452 3.333222e-05
+        group  r  n alpha beta  estimate     lower     upper    pvalue
+      1     1 10 20     1    1 0.4970124 0.2930054 0.7019452 0.9802007
     Code
       rate_effect_bayesian(NA_integer_, 10)
     Output
-        group  r  n alpha beta estimate      lower     upper       pvalue
-      1     1 NA 10     1    1 0.510529 0.02721977 0.9751937 3.333222e-05
+        group  r  n alpha beta estimate      lower     upper    pvalue
+      1     1 NA 10     1    1 0.510529 0.02721977 0.9751937 0.9782007
     Code
       rate_effect_bayesian(NA_integer_, 1, alpha = 100, beta = 1)
     Output
@@ -117,12 +117,12 @@
       rate_effect_bayesian(c(NA_integer_, NA), 1, alpha = c(2, 10), beta = c(10, 2))
     Output
         group  r n alpha beta  estimate      lower     upper       pvalue
-      1     1 NA 0     2   10 0.1488431 0.02237816 0.4137401 3.333222e-05
-      2     2 NA 0    10    2 0.8522715 0.58237166 0.9778634 2.333256e-04
+      1     1 NA 0     2   10 0.1488431 0.02237816 0.4137401 0.0092330256
+      2     2 NA 0    10    2 0.8522715 0.58237166 0.9778634 0.0002333256
     Code
       rate_effect_bayesian(c(1, 9), c(10, 10), 1)
     Output
         group r  n alpha beta  estimate      lower     upper       pvalue
-      1     1 1 10     1    1 0.1500490 0.02309352 0.4216434 3.333222e-05
-      2     2 9 10     1    1 0.8539097 0.58129816 0.9764429 4.333189e-04
+      1     1 1 10     1    1 0.1500490 0.02309352 0.4216434 0.0148328389
+      2     2 9 10     1    1 0.8539097 0.58129816 0.9764429 0.0004333189
 
