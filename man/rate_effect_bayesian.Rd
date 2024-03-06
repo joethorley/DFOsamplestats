@@ -30,10 +30,10 @@ The p-value for the first group is for p1 = 0.5 while the p-value for
 subsequent groups is for pn = p1.
 }
 \examples{
-\dontrun{
+set.seed(99)
 rate_effect_bayesian(0, 5)
 rate_effect_bayesian(0, 5, 10, 10)
-}
+rate_effect_bayesian(c(0,5), c(5,5), 10, 10)
 }
 \seealso{
 \code{\link[=rate_effect]{rate_effect()}}

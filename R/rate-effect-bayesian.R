@@ -12,14 +12,20 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' set.seed(99)
 #' rate_effect_bayesian(0, 5)
 #' rate_effect_bayesian(0, 5, 10, 10)
-#' }
+#' rate_effect_bayesian(c(0,5), c(5,5), 10, 10)
 rate_effect_bayesian <- function(r, n, alpha = 1, beta = 1, alternative = "two.sided") {
-  if (!requireNamespace("nimble", quietly = TRUE)) {
+  if (!requireNamespace("rjags", quietly = TRUE)) {
     stop(
-      "Package \"nimble\" must be installed to use this function.",
+      "Package \"rjags\" must be installed to use this function.",
+      call. = FALSE
+    )
+  }
+  if (!requireNamespace("mcmcr", quietly = TRUE)) {
+    stop(
+      "Package \"mcmcr\" must be installed to use this function.",
       call. = FALSE
     )
   }
@@ -74,8 +80,47 @@ rate_effect_bayesian <- function(r, n, alpha = 1, beta = 1, alternative = "two.s
   group <- factor(1:length(r))
   
   data <- tibble::tibble(group = group, r = r, n = n, alpha = alpha, beta = beta)
+  list <- as.list(data)
+  list$group <- NULL
+  list$nObs <- nrow(data)
+  
+  file <- tempfile()
+  writeLines("model {
+        for(i in 1:nObs) {
+          bGroup[i] ~ dbeta(alpha[i], beta[i])
+          r[i] ~ dbin(bGroup[i], n[i])
+          bDiff[i] <- bGroup[i] - bGroup[1]
+        }
+      }", con = file)
   
   
+  seed <- round(stats::runif(1, 0, 100000))
+  inits <- list(.RNG.name = "base::Wichmann-Hill", .RNG.seed = seed)
+  model <- rjags::jags.model(file, data = list, n.chains = 3, quiet = TRUE, inits = inits)
+  utils::capture.output(mcmc <- rjags::jags.samples(model, variable.names = c("bGroup", "bDiff"), n.iter = 500))
+  group <- mcmc$bGroup
+  group <- stats::coef(group)
+  group$pvalue <- 1/2^group$svalue
+  group$svalue <- NULL
+  group$term <- NULL
+  group$diff <- group$estimate - 0.5
   
-  .NotYetImplemented()
+  if(nrow(data) > 1) {
+    diff <- mcmc$bDiff
+    diff <- stats::coef(diff)
+    diff$pvalue <- 1/2^diff$svalue
+    group$pvalue[2:nrow(data)] <- diff$pvalue[2:nrow(data)]
+    group$diff[2:nrow(data)] <- diff$estimate[2:nrow(data)]
+  }
+  if(alternative != "two.sided") {
+    group$pvalue <- group$pvalue / 2
+    if(alternative == "greater") {
+      group$pvalue[group$diff < 0] <- 1
+    } else {
+      group$pvalue[group$diff > 0] <- 1
+    }
+  }
+  group$diff <- NULL
+  
+  cbind(data, group)
 }

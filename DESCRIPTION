@@ -19,7 +19,8 @@ Imports:
    tibble
 Suggests:
     covr,
-    nimble,
+    rjags,
+    mcmcr,
     testthat (>= 3.0.0)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
