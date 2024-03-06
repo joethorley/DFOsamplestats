@@ -18,3 +18,18 @@ test_that("rate_effect_bayesian works", {
     rate_effect_bayesian(r = c(25,35), n = c(100,100), alternative = "less")
   })
 })
+
+test_that("rate_effect_bayesian prior", {
+  set.seed(42)
+  rate_effect_bayesian(r = integer(0), n = integer(0))
+  expect_snapshot({
+    rate_effect_bayesian(1, 10, alpha = 10, beta = 2)
+    rate_effect_bayesian(10, 20)
+    rate_effect_bayesian(NA_integer_, 10)
+    rate_effect_bayesian(NA_integer_, 1, alpha = 100, beta = 1)
+    rate_effect_bayesian(NA_integer_, 1, alpha = 100, beta = 1, alternative = "greater")
+    rate_effect_bayesian(NA_integer_, 1, alpha = 100, beta = 1, alternative = "less")
+    rate_effect_bayesian(c(NA_integer_, NA), 1, alpha = c(2,10), beta = c(10,2))
+    rate_effect_bayesian(c(1,9), c(10, 10), 1)
+  })
+})

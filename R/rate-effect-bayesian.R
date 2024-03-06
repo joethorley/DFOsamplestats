@@ -97,7 +97,7 @@ rate_effect_bayesian <- function(r, n, alpha = 1, beta = 1, alternative = "two.s
   seed <- round(stats::runif(1, 0, 100000))
   inits <- list(.RNG.name = "base::Wichmann-Hill", .RNG.seed = seed)
   model <- rjags::jags.model(file, data = list, n.chains = 3, quiet = TRUE, inits = inits)
-  utils::capture.output(mcmc <- rjags::jags.samples(model, variable.names = c("bGroup", "bDiff"), n.iter = 500))
+  utils::capture.output(mcmc <- rjags::jags.samples(model, variable.names = c("bGroup", "bDiff"), n.iter = 10000))
   group <- mcmc$bGroup
   group <- stats::coef(group)
   group$pvalue <- 1/2^group$svalue
